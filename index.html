@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ojasvi & Aman — Wedding celebrations, July 21–22, 2026" />
+  <title>Ojasvi & Aman | Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Tenor+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#home" class="logo-text">O &amp; A</a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-bg" style="--hero-img: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80');"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-blessing" data-animate>May your union be blessed with love that deepens with each sunrise.</p>
+        <p class="hero-kicker" data-animate>Together with our families, we invite you to celebrate</p>
+        <h1 class="hero-names">
+          <span class="name-bride" data-animate>Ojasvi</span>
+          <span class="ampersand" data-animate>&amp;</span>
+          <span class="name-groom" data-animate>Aman</span>
+        </h1>
+        <p class="hero-dates" data-animate>21 &amp; 22 July 2026</p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <span class="countdown-label">Counting down to the wedding</span>
+          <div class="countdown-grid">
+            <div><strong id="cd-days">—</strong><span>Days</span></div>
+            <div><strong id="cd-hours">—</strong><span>Hours</span></div>
+            <div><strong id="cd-mins">—</strong><span>Mins</span></div>
+            <div><strong id="cd-secs">—</strong><span>Secs</span></div>
+          </div>
+        </div>
+        <a href="#schedule" class="btn-primary">View celebrations</a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">Scroll</div>
+    </section>
+
+    <section id="story" class="section story">
+      <div class="container narrow">
+        <blockquote class="quote-block">
+          <p>Two hearts, one journey. We ask for your blessings as we step into forever, hand in hand.</p>
+          <cite>— With love, Ojasvi &amp; Aman</cite>
+        </blockquote>
+        <p class="story-lead">
+          We are grateful for everyone who shaped our paths and led us to this moment. Your presence would make our wedding complete—please join us as we begin our new chapter surrounded by the people we cherish most.
+        </p>
+      </div>
+    </section>
+
+    <section id="schedule" class="section schedule">
+      <div class="container">
+        <h2 class="section-title">Celebrations</h2>
+        <p class="section-sub">Tap a day to explore each gathering—dress code, theme, and venue with directions. All events will be held at the same location.</p>
+
+        <div class="day-tabs" role="tablist" aria-label="Wedding days">
+          <button type="button" class="day-tab active" role="tab" aria-selected="true" aria-controls="panel-day1" id="tab-day1">21 July 2026</button>
+          <button type="button" class="day-tab" role="tab" aria-selected="false" aria-controls="panel-day2" id="tab-day2">22 July 2026</button>
+        </div>
+
+        <div id="panel-day1" class="day-panel active" role="tabpanel" aria-labelledby="tab-day1">
+          <div class="events-grid">
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">5:00 AM</span>
+                <h3>Ganesh Invocation</h3>
+                <p class="event-desc">A sacred start—we seek blessings for harmony and auspicious beginnings for all our festivities.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Serene dawn, soft marigold and ivory—peaceful, devotional tones.</p>
+                  <p><strong>Dress code:</strong> Traditional Indian attire; light pastels, white, or cream preferred.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">8:00 – 9:00 AM</span>
+                <h3>Family Breakfast Gathering</h3>
+                <p class="event-desc">A warm morning with loved ones—simple rituals and shared laughter over a traditional spread.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Homely warmth—fresh florals and earthy tones.</p>
+                  <p><strong>Dress code:</strong> Comfortable ethnic or smart-casual; easy silhouettes for a relaxed morning.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">10:30 AM – 1:30 PM</span>
+                <h3>Turmeric Ceremony</h3>
+                <p class="event-desc">Golden hues, music, and blessings—celebrating the glow before the big day.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Sunshine &amp; joy—yellows, whites, and bursts of green.</p>
+                  <p><strong>Dress code:</strong> Yellow, white, or cream; avoid black. Flowy fabrics welcome.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">3:00 – 5:00 PM</span>
+                <h3>Ring Ceremony</h3>
+                <p class="event-desc">A promise sealed with rings—intimate, elegant, and full of cheer.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Modern romance—blush, gold accents, candlelight softness.</p>
+                  <p><strong>Dress code:</strong> Festive Indian or Indo-western; semi-formal welcome.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">7:00 PM onwards</span>
+                <h3>Ladies’ Musical Evening</h3>
+                <p class="event-desc">Songs, dance, and sparkle—a vibrant night celebrating the women who light up our lives.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Bollywood glam—sequins, jewel tones, fairy lights.</p>
+                  <p><strong>Dress code:</strong> Festive lehengas, gowns, or shararas; statement jewellery encouraged.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="panel-day2" class="day-panel" role="tabpanel" aria-labelledby="tab-day2" hidden>
+          <div class="events-grid">
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1583878545126-2f1ca0142719?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">6:15 PM</span>
+                <h3>Welcome the Groom’s Procession</h3>
+                <p class="event-desc">Drums, colour, and joy—we receive the baraat with open arms and dancing feet. If it rains, we’ll also enjoy a Rain Dance Party (subject to rain).</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Royal procession—rich reds, gold, and festive marquee.</p>
+                  <p><strong>Dress code:</strong> Traditional Indian festive; comfortable footwear for dancing.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">7:15 PM</span>
+                <h3>Sacred Wedding Vows</h3>
+                <p class="event-desc">Around the sacred fire, we take our vows—your blessings mean the world to us.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Timeless mandap elegance—white jasmine, deep greens, gold accents.</p>
+                  <p><strong>Dress code:</strong> Wedding-traditional; guests: formal Indian attire.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-card" data-event>
+              <div class="event-image" style="--img: url('https://images.unsplash.com/photo-1464366406140-2309a31ea7d3?w=800&q=80');"></div>
+              <div class="event-body">
+                <span class="event-time">9:00 PM onwards</span>
+                <h3>Reception</h3>
+                <p class="event-desc">Dinner, toasts, and dancing—let’s celebrate late into the night.</p>
+                <button type="button" class="event-more" aria-expanded="false">Details &amp; venue</button>
+                <div class="event-details" hidden>
+                  <p><strong>Theme:</strong> Evening glamour—champagne, crystal, and starlight.</p>
+                  <p><strong>Dress code:</strong> Black tie optional / formal evening Indian or Western.</p>
+                  <p><strong>Venue:</strong> <span class="venue-name">Wedding Venue</span></p>
+                  <a class="map-link" href="https://share.google/FwzCTY9EcbW8V2fCZ" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <blockquote class="quote-inline">
+          <p>May your home be filled with laughter, your hearts with patience, and your days with countless small joys.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section rsvp">
+      <div class="container narrow">
+        <h2 class="section-title">We hope to see you</h2>
+        <p class="section-sub">Please reach out to confirm your attendance or for any questions about travel and timings.</p>
+        <div class="rsvp-card">
+          <p><strong>Bride’s family</strong> — update phone or email in your copy</p>
+          <p><strong>Groom’s family</strong> — update phone or email in your copy</p>
+          <p class="rsvp-note">Replace placeholder venue names and map links in <code>index.html</code> with your exact addresses for one-tap directions.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-script">Ojasvi &amp; Aman</p>
+    <p class="footer-date">21 &amp; 22 July 2026</p>
+    <p class="footer-blessing">With all our love and gratitude</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
