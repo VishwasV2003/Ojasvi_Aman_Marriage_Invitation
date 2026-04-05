@@ -41,6 +41,41 @@ body {
   overflow-x: hidden;
 }
 
+body.lang-hi {
+  font-family: "Noto Sans Devanagari", var(--font-sans), system-ui, sans-serif;
+}
+
+body.lang-hi .hero-names .name-bride,
+body.lang-hi .hero-names .name-groom,
+body.lang-hi .logo-text,
+body.lang-hi .footer-script,
+body.lang-hi .envelope-paper-names,
+body.lang-hi .envelope-wax-initials {
+  font-family: var(--font-script);
+}
+
+body.lang-hi .section-title,
+body.lang-hi .hero-dates,
+body.lang-hi .hero-blessing,
+body.lang-hi .hero-kicker,
+body.lang-hi .event-body h3,
+body.lang-hi .event-time,
+body.lang-hi .quote-block p,
+body.lang-hi cite,
+body.lang-hi .envelope-kicker,
+body.lang-hi .countdown-label,
+body.lang-hi .footer-date {
+  font-family: "Noto Sans Devanagari", var(--font-serif), Georgia, serif;
+}
+
+body.lang-hi .main-nav a,
+body.lang-hi .day-tab,
+body.lang-hi .btn-primary,
+body.lang-hi .btn-location,
+body.lang-hi .envelope-open-btn {
+  font-family: "Noto Sans Devanagari", var(--font-ui), system-ui, sans-serif;
+}
+
 body.envelope-active {
   overflow: hidden;
 }
@@ -83,6 +118,17 @@ body.envelope-active {
   text-align: center;
   max-width: 420px;
   width: 100%;
+}
+
+.envelope-lang {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.lang-toggle--envelope {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
 }
 
 .envelope-kicker {
@@ -323,6 +369,46 @@ body.envelope-active {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.lang-toggle {
+  flex-shrink: 0;
+  font-family: "Noto Sans Devanagari", var(--font-ui), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-deep);
+  background: var(--color-cream);
+  border: 1px solid rgba(44, 36, 32, 0.15);
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.lang-toggle:hover {
+  background: #fff;
+  border-color: var(--color-accent-soft);
+}
+
+.lang-toggle[aria-pressed="true"] {
+  background: var(--color-deep);
+  color: #fff;
+  border-color: var(--color-deep);
+}
+
+.lang-toggle-label {
+  display: inline-block;
+  min-width: 3.25rem;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .logo-text {
@@ -398,6 +484,15 @@ body.envelope-active {
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+  }
+
+  .header-end {
+    gap: 0.4rem;
+  }
+
+  .lang-toggle {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.72rem;
   }
 
   .main-nav {

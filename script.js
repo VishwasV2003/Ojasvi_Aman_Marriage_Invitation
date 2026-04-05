@@ -135,7 +135,13 @@
         btn.setAttribute("aria-expanded", String(!expanded));
         details.hidden = expanded;
         card.classList.toggle("is-open", !expanded);
-        btn.textContent = expanded ? "Details" : "Hide details";
+        btn.textContent = expanded
+          ? window.InviteI18n
+            ? window.InviteI18n.t("btn_details")
+            : "Details"
+          : window.InviteI18n
+            ? window.InviteI18n.t("btn_hide_details")
+            : "Hide details";
       });
     });
   }
