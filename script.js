@@ -1,6 +1,17 @@
 (function () {
   "use strict";
 
+  /** 1 = scrolling down, -1 = scrolling up — drives reveal enter/exit direction */
+  var scrollDirection = 1;
+  var lastScrollY = typeof window.scrollY === "number" ? window.scrollY : 0;
+
+  function trackScrollDirection() {
+    var y = window.scrollY || 0;
+    if (y > lastScrollY) scrollDirection = 1;
+    else if (y < lastScrollY) scrollDirection = -1;
+    lastScrollY = y;
+  }
+
   // Counts down to the wedding vows (22 July 2026, 7:15 PM).
   var WEDDING_START = new Date("2026-07-22T19:15:00");
 
@@ -45,6 +56,7 @@
     var nav = document.querySelector(".main-nav");
 
     function onScroll() {
+      trackScrollDirection();
       if (window.scrollY > 40) {
         header.classList.add("is-scrolled");
       } else {
@@ -94,6 +106,20 @@
         tab.setAttribute("aria-selected", "true");
         panel.classList.add("active");
         panel.hidden = false;
+
+        window.requestAnimationFrame(function () {
+          panel.querySelectorAll(".event-card[data-reveal]").forEach(function (card) {
+            var r = card.getBoundingClientRect();
+            if (r.top < window.innerHeight * 0.92 && r.bottom > window.innerHeight * 0.08) {
+              card.setAttribute("data-reveal-axis", scrollDirection >= 0 ? "from-below" : "from-above");
+              window.requestAnimationFrame(function () {
+                window.requestAnimationFrame(function () {
+                  card.classList.add("is-visible");
+                });
+              });
+            }
+          });
+        });
       });
     });
   }
@@ -109,14 +135,17 @@
         btn.setAttribute("aria-expanded", String(!expanded));
         details.hidden = expanded;
         card.classList.toggle("is-open", !expanded);
-        btn.textContent = expanded ? "Details & venue" : "Hide details";
+        btn.textContent = expanded ? "Details" : "Hide details";
       });
     });
   }
 
   function initReveal() {
-    var els = document.querySelectorAll(".section-title, .section-sub, .quote-inline, .rsvp-card");
-    if (!("IntersectionObserver" in window)) {
+    var els = document.querySelectorAll("[data-reveal]");
+    var reduced =
+      typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduced || !("IntersectionObserver" in window)) {
       els.forEach(function (el) {
         el.classList.add("is-visible");
       });
@@ -124,23 +153,91 @@
     }
 
     els.forEach(function (el) {
-      el.classList.add("reveal");
+      if (!el.getAttribute("data-reveal-axis")) {
+        el.setAttribute("data-reveal-axis", "from-below");
+      }
     });
 
     var obs = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
+          var el = entry.target;
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
+            el.setAttribute("data-reveal-axis", scrollDirection >= 0 ? "from-below" : "from-above");
+            window.requestAnimationFrame(function () {
+              window.requestAnimationFrame(function () {
+                el.classList.add("is-visible");
+              });
+            });
+          } else {
+            el.classList.remove("is-visible");
+            var r = entry.boundingClientRect;
+            var vh = window.innerHeight || 0;
+            if (r.top >= vh - 24) {
+              el.setAttribute("data-reveal-axis", "from-below");
+            } else if (r.bottom <= 24) {
+              el.setAttribute("data-reveal-axis", "from-above");
+            } else {
+              el.setAttribute("data-reveal-axis", scrollDirection >= 0 ? "to-above" : "to-below");
+            }
           }
         });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+      {
+        root: null,
+        rootMargin: "-6% 0px -10% 0px",
+        threshold: 0,
+      }
     );
 
     els.forEach(function (el) {
       obs.observe(el);
+    });
+  }
+
+  function initEnvelopeGate() {
+    var gate = document.getElementById("envelope-gate");
+    var btn = document.getElementById("envelope-open-btn");
+    var mainEl = document.querySelector("main");
+    var headerEl = document.querySelector(".site-header");
+
+    if (!gate || !btn) {
+      initReveal();
+      return;
+    }
+
+    document.body.classList.add("envelope-active");
+    if (mainEl) mainEl.setAttribute("inert", "");
+    if (headerEl) headerEl.setAttribute("inert", "");
+
+    var reduced =
+      typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var openMs = reduced ? 280 : 1680;
+
+    function finishOpen() {
+      gate.classList.add("is-done");
+      gate.setAttribute("aria-hidden", "true");
+      gate.removeAttribute("aria-modal");
+      document.body.classList.remove("envelope-active");
+      if (mainEl) mainEl.removeAttribute("inert");
+      if (headerEl) headerEl.removeAttribute("inert");
+      var home = document.getElementById("home");
+      if (home) {
+        home.setAttribute("tabindex", "-1");
+        try {
+          home.focus({ preventScroll: true });
+        } catch (e) {
+          home.focus();
+        }
+      }
+      initReveal();
+    }
+
+    btn.addEventListener("click", function () {
+      if (gate.classList.contains("is-opening")) return;
+      gate.classList.add("is-opening");
+      btn.disabled = true;
+      window.setTimeout(finishOpen, openMs);
     });
   }
 
@@ -149,5 +246,5 @@
   initEventCards();
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  initReveal();
+  initEnvelopeGate();
 })();
