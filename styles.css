@@ -735,6 +735,99 @@ body.envelope-active {
   color: var(--color-muted);
 }
 
+/* Shri Charbhuja Nath Ji — same card language as families */
+.charbhuja {
+  background: var(--color-bg);
+}
+
+.charbhuja .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.charbhuja-sub {
+  margin-bottom: 2rem;
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.charbhuja-sub strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-deep);
+}
+
+.parents-card--charbhuja .charbhuja-quote {
+  margin: 0 0 0.6rem;
+  padding: 0 0.35rem;
+  border: none;
+  max-width: none;
+  text-align: center;
+}
+
+.parents-card--charbhuja .charbhuja-quote p {
+  margin: 0;
+  font-family: "Noto Serif Devanagari", "Kohinoor Devanagari", "Nirmala UI", serif;
+  font-size: clamp(0.7rem, 1.85vw, 0.82rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-deep);
+  letter-spacing: 0.02em;
+}
+
+.charbhuja-grid.parents-grid {
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .charbhuja-grid.parents-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.charbhuja-card-img-wrap {
+  --charbhuja-frame-h: min(220px, 48vw);
+  width: min(100%, calc(var(--charbhuja-frame-h) * 720 / 912));
+  max-height: var(--charbhuja-frame-h);
+  aspect-ratio: 720 / 912;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.15rem;
+  border-radius: calc(var(--radius) - 6px);
+  overflow: hidden;
+  background: linear-gradient(180deg, #f5ebe0 0%, #e8dfd6 100%);
+  transition: box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.charbhuja-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition:
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.45s ease;
+}
+
+.charbhuja-card-img-wrap:hover {
+  box-shadow: 0 10px 28px rgba(44, 36, 32, 0.1);
+}
+
+.charbhuja-card-img-wrap:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.03);
+}
+
+.parents-card--charbhuja .parents-card-heading {
+  color: #5c4818;
+}
+
 .parents {
   background: var(--color-bg);
 }
@@ -817,7 +910,7 @@ body.envelope-active {
   );
 }
 
-.parents .parents-card .parents-card-heading {
+.parents-card .parents-card-heading {
   font-family: var(--font-display);
   font-size: clamp(1.22rem, 3.4vw, 1.52rem);
   font-weight: 600;
@@ -840,7 +933,7 @@ body.envelope-active {
   color: #5c4818;
 }
 
-.parents .parents-card .parents-card-prose {
+.parents-card .parents-card-prose {
   font-family: var(--font-serif);
   font-size: clamp(1.05rem, 2.5vw, 1.2rem);
   font-weight: 400;
@@ -864,13 +957,60 @@ body.envelope-active {
   }
 }
 
-.parents .parents-card .parents-em {
+.parents-card .parents-em {
   font-family: var(--font-display), Georgia, "Times New Roman", serif;
   font-weight: 700;
   font-style: italic;
   font-size: 1.09em;
   color: var(--color-deep);
   letter-spacing: 0.02em;
+}
+
+.parents-grandparents {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(139, 105, 20, 0.14);
+  text-align: center;
+}
+
+.parents-grandparents-title {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 0.9rem;
+}
+
+.parents-grandparents-list {
+  margin: 0;
+}
+
+.parents-grandparents-list > div {
+  margin-bottom: 0.8rem;
+}
+
+.parents-grandparents-list > div:last-child {
+  margin-bottom: 0;
+}
+
+.parents-grandparents-list dt {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 0.22rem;
+}
+
+.parents-grandparents-list dd {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(0.98rem, 2.2vw, 1.08rem);
+  color: var(--color-deep);
+  line-height: 1.35;
 }
 
 /* Schedule */
@@ -1194,6 +1334,14 @@ body.envelope-active {
   opacity: 0.85;
 }
 
+.footer-credit {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  margin: 1.75rem 0 0;
+  opacity: 0.55;
+}
+
 /* Scroll reveal — bidirectional (in/out with scroll); page chrome stays fixed */
 [data-reveal] {
   opacity: 0;
@@ -1305,6 +1453,205 @@ body.envelope-active {
     transform: none !important;
     filter: none !important;
     transition: none !important;
+  }
+
+  .charbhuja-card-img-wrap,
+  .charbhuja-card-img-wrap:hover {
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .charbhuja-card-img-wrap img,
+  .charbhuja-card-img-wrap:hover img {
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .family-drawer,
+  .family-drawer-backdrop {
+    transition: none !important;
+  }
+}
+
+/* Family name drawers (parents section) */
+body.family-drawer-open {
+  overflow: hidden;
+}
+
+.family-view-all {
+  display: block;
+  width: 100%;
+  margin-top: 1.1rem;
+  padding: 0.35rem 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--color-accent);
+  transition: color var(--transition);
+}
+
+.family-view-all:hover {
+  color: var(--color-deep);
+}
+
+.family-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 450;
+  background: rgba(26, 22, 20, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.32s ease,
+    visibility 0s linear 0.32s;
+}
+
+.family-drawer-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.32s ease;
+}
+
+.family-drawer {
+  position: fixed;
+  z-index: 460;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(22.5rem, 100vw);
+  max-width: 100%;
+  background: linear-gradient(175deg, #fffefb 0%, #faf6f0 45%, #f4ede4 100%);
+  box-shadow: -12px 0 40px rgba(44, 36, 32, 0.14);
+  border-left: 1px solid rgba(139, 105, 20, 0.12);
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.family-drawer.is-open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.family-drawer-panel {
+  position: relative;
+  padding: 3rem 1.5rem 2rem;
+  min-height: 100%;
+}
+
+.family-drawer-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(44, 36, 32, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--color-ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.family-drawer-close:hover {
+  background: var(--color-deep);
+  color: #fff;
+}
+
+.family-drawer-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4vw, 1.65rem);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--color-deep);
+  padding-right: 2.5rem;
+}
+
+.family-drawer-intro {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.55;
+}
+
+.family-drawer-group {
+  margin-bottom: 1.35rem;
+}
+
+.family-drawer-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.family-drawer-group-title {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+}
+
+.family-drawer-names {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.family-drawer-names li {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-deep);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(139, 105, 20, 0.1);
+}
+
+.family-drawer-names li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 540px) {
+  .family-drawer {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: min(88dvh, 100%);
+    max-height: 100%;
+    border-left: none;
+    border-radius: 16px 16px 0 0;
+    border-top: 1px solid rgba(139, 105, 20, 0.12);
+    transform: translateY(100%);
+    box-shadow: 0 -12px 40px rgba(44, 36, 32, 0.14);
+  }
+
+  .family-drawer.is-open {
+    transform: translateY(0);
   }
 }
 

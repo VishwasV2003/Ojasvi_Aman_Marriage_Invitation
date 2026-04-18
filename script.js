@@ -12,8 +12,8 @@
     lastScrollY = y;
   }
 
-  // Counts down to the wedding vows (22 July 2026, 7:15 PM).
-  var WEDDING_START = new Date("2026-07-22T19:15:00");
+  // Counts down to 21 July 2026, 12:00 AM India time (IST).
+  var WEDDING_START = new Date("2026-07-21T00:00:00+05:30");
 
   function pad(n) {
     return String(n).padStart(2, "0");
@@ -241,9 +241,110 @@
     });
   }
 
+  function initFamilyDrawers() {
+    var backdrop = document.getElementById("family-drawer-backdrop");
+    var drawerBride = document.getElementById("family-drawer-bride");
+    var drawerGroom = document.getElementById("family-drawer-groom");
+    var btnBride = document.getElementById("family-slider-bride");
+    var btnGroom = document.getElementById("family-slider-groom");
+    if (!backdrop || !drawerBride || !drawerGroom || !btnBride || !btnGroom) return;
+
+    var activeTrigger = null;
+
+    function setPageInert(on) {
+      var mainEl = document.querySelector("main");
+      var headerEl = document.querySelector(".site-header");
+      if (!mainEl) return;
+      if (on) {
+        mainEl.setAttribute("inert", "");
+        if (headerEl) headerEl.setAttribute("inert", "");
+      } else {
+        mainEl.removeAttribute("inert");
+        if (headerEl) headerEl.removeAttribute("inert");
+      }
+    }
+
+    function closeDrawer(skipReturnFocus) {
+      drawerBride.classList.remove("is-open");
+      drawerGroom.classList.remove("is-open");
+      drawerBride.setAttribute("aria-hidden", "true");
+      drawerGroom.setAttribute("aria-hidden", "true");
+      backdrop.classList.remove("is-open");
+      backdrop.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("family-drawer-open");
+      btnBride.setAttribute("aria-expanded", "false");
+      btnGroom.setAttribute("aria-expanded", "false");
+      setPageInert(false);
+      if (!skipReturnFocus && activeTrigger) {
+        try {
+          activeTrigger.focus();
+        } catch (e1) {
+          /* ignore */
+        }
+      }
+      activeTrigger = null;
+    }
+
+    function openDrawer(drawer, trigger) {
+      closeDrawer(true);
+      activeTrigger = trigger;
+      drawer.classList.add("is-open");
+      backdrop.classList.add("is-open");
+      backdrop.setAttribute("aria-hidden", "false");
+      drawer.setAttribute("aria-hidden", "false");
+      document.body.classList.add("family-drawer-open");
+      trigger.setAttribute("aria-expanded", "true");
+      setPageInert(true);
+      var closeBtn = drawer.querySelector(".family-drawer-close");
+      window.requestAnimationFrame(function () {
+        if (closeBtn) {
+          try {
+            closeBtn.focus();
+          } catch (e2) {
+            /* ignore */
+          }
+        }
+      });
+    }
+
+    btnBride.addEventListener("click", function () {
+      if (drawerBride.classList.contains("is-open")) {
+        closeDrawer(false);
+      } else {
+        openDrawer(drawerBride, btnBride);
+      }
+    });
+
+    btnGroom.addEventListener("click", function () {
+      if (drawerGroom.classList.contains("is-open")) {
+        closeDrawer(false);
+      } else {
+        openDrawer(drawerGroom, btnGroom);
+      }
+    });
+
+    backdrop.addEventListener("click", function () {
+      closeDrawer(false);
+    });
+
+    drawerBride.querySelector(".family-drawer-close").addEventListener("click", function () {
+      closeDrawer(false);
+    });
+    drawerGroom.querySelector(".family-drawer-close").addEventListener("click", function () {
+      closeDrawer(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && backdrop.classList.contains("is-open")) {
+        closeDrawer(false);
+      }
+    });
+  }
+
   initHeader();
   initDayTabs();
   initEventCards();
+  initFamilyDrawers();
   updateCountdown();
   setInterval(updateCountdown, 1000);
   initEnvelopeGate();
