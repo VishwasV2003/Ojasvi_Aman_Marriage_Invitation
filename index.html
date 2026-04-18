@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Tenor+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=18" />
 </head>
 <body>
   <div
@@ -116,11 +116,11 @@
         <p class="section-sub charbhuja-sub" data-reveal>
           With the blessings of our divine god <strong>Shri Charbhuja Nath Ji</strong>, we begin this celebration in joy and humility. May His grace rest upon you as you share these sacred days with us.
         </p>
-        <blockquote class="charbhuja-quote" lang="hi" data-reveal>
-          <p>कहां जाए अर्जी करूं दाय न आवे और <br> सारो ही कारज सारजौ बिराज्या छौ गढ़बोर</p>
-        </blockquote>
         <div class="parents-grid charbhuja-grid" data-reveal>
           <article class="parents-card parents-card--charbhuja">
+            <blockquote class="charbhuja-quote" lang="hi" data-reveal>
+              <p>कहां जाए अर्जी करूं दाय न आवे और <br> सारो ही कारज सारजौ बिराज्या छौ गढ़बोर</p>
+            </blockquote>
             <div class="charbhuja-card-img-wrap">
               <img
                 src="https://scontent.fjai1-4.fna.fbcdn.net/v/t39.30808-6/309245218_401452698830455_1288351250413649069_n.jpg?_nc_cat=110&amp;ccb=1-7&amp;_nc_sid=1d70fc&amp;_nc_ohc=k-8hbGml6LEQ7kNvwGAQ0OT&amp;_nc_oc=Adr_-epXRsW9I4VsQfVn8o8Hv1x7k1FXH5zorcK1tbogGa2FEcrr1ylcQ5OpLvEfj4OZ8lZiXaeQDt4Vu6AgKdjf&amp;_nc_zt=23&amp;_nc_ht=scontent.fjai1-4.fna&amp;_nc_gid=UdhPLlCvZhf09emO1Mt3LA&amp;_nc_ss=7a389&amp;oh=00_Af2wB3FAICkXyNpoi_uNu2Q1Ph9idDi7l8Ovea1OLcm3kg&amp;oe=69E97D51"
@@ -169,6 +169,14 @@
                 </div>
               </dl>
             </div>
+            <button
+              type="button"
+              class="family-view-all"
+              id="family-slider-bride"
+              aria-expanded="false"
+              aria-controls="family-drawer-bride">
+              View all
+            </button>
           </article>
           <article class="parents-card parents-card--groom">
             <div class="parents-card-heading-block">
@@ -187,6 +195,14 @@
                 </div>
               </dl>
             </div>
+            <button
+              type="button"
+              class="family-view-all"
+              id="family-slider-groom"
+              aria-expanded="false"
+              aria-controls="family-drawer-groom">
+              View all
+            </button>
           </article>
         </div>
       </div>
@@ -225,7 +241,7 @@
             <article class="event-card" data-reveal>
               <div class="event-image" style="--img: url('https://t3.ftcdn.net/jpg/16/73/70/78/360_F_1673707819_CzgxMkrrGI5wy8HEKsZZgcKXJQp1Ge6y.jpg');"></div>
               <div class="event-body">
-                <span class="event-time">10:30 onwards</span>
+                <span class="event-time">10 AM onwards</span>
                 <h3>Haldi</h3>
                 <p class="event-desc">A vibrant Haldi carnival—golden hues, music, and blessings before the big day.</p>
               </div>
@@ -316,14 +332,102 @@
     </section>
   </main>
 
+  <div id="family-drawer-backdrop" class="family-drawer-backdrop" aria-hidden="true"></div>
+
+  <aside
+    id="family-drawer-bride"
+    class="family-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="family-drawer-bride-title"
+    aria-hidden="true">
+    <div class="family-drawer-panel">
+      <button type="button" class="family-drawer-close" aria-label="Close drawer">&times;</button>
+      <h3 class="family-drawer-title" id="family-drawer-bride-title">Ojasvi’s family</h3>
+      <p class="family-drawer-intro">Everyone we honour on this side of our celebration.</p>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Bride</h4>
+        <ul class="family-drawer-names">
+          <li>Ojasvi</li>
+        </ul>
+      </div>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Parents</h4>
+        <ul class="family-drawer-names">
+          <li>Mr. Ganpat Lal Kothari</li>
+          <li>Mrs. Pratibha Vijayvargiya</li>
+        </ul>
+      </div>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Grandparents</h4>
+        <ul class="family-drawer-names">
+          <li>Lt. Mr. Chatarbhuj Kothari</li>
+          <li>Lt. Mrs. Shankar Devi</li>
+        </ul>
+      </div>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Uncle &amp; Aunty</h4>
+        <ul class="family-drawer-names">
+          <li>Mr. Ramesh Chandra &amp; Mrs. Shanta</li>
+          <li>Mr. Om Prakash &amp; Mrs. Nitisha</li>
+          <li>Mr. Ashok Kumar &amp; Mrs. Jyoti</li>
+        </ul>
+      </div>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Brothers and Sisters</h4>
+        <ul class="family-drawer-names">
+          <li>Yash</li>
+          <li>Hinal</li>
+          <li>Vishwas</li>
+          <li>Aanchal</li>
+          <li>Ashwin</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <aside
+    id="family-drawer-groom"
+    class="family-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="family-drawer-groom-title"
+    aria-hidden="true">
+    <div class="family-drawer-panel">
+      <button type="button" class="family-drawer-close" aria-label="Close drawer">&times;</button>
+      <h3 class="family-drawer-title" id="family-drawer-groom-title">Aman’s family</h3>
+      <p class="family-drawer-intro">Everyone we honour on this side of our celebration.</p>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Groom</h4>
+        <ul class="family-drawer-names">
+          <li>Aman</li>
+        </ul>
+      </div>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Parents</h4>
+        <ul class="family-drawer-names">
+          <li>Lt. Mr. Mahesh Kumar Gupta</li>
+          <li>Mrs. Damyanti Gupta</li>
+        </ul>
+      </div>
+      <div class="family-drawer-group">
+        <h4 class="family-drawer-group-title">Grandparents</h4>
+        <ul class="family-drawer-names">
+          <li>Mr. Sita Ram Gupta</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
   <footer class="site-footer">
     <div class="footer-inner" data-reveal>
       <p class="footer-script">Ojasvi &amp; Aman</p>
       <p class="footer-date">21 &amp; 22 July 2026</p>
       <p class="footer-blessing">With all our love and gratitude</p>
+      <p class="footer-credit">Developed and maintained by Vishwas</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
