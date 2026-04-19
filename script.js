@@ -206,6 +206,25 @@
       return;
     }
 
+    /** Keep hero at top: block browser scroll restoration on refresh + reset on open. */
+    function scrollInviteToTop() {
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      } catch (e) {
+        window.scrollTo(0, 0);
+      }
+      lastScrollY = 0;
+    }
+
+    scrollInviteToTop();
+    window.addEventListener("load", scrollInviteToTop);
+    window.addEventListener("pageshow", function (ev) {
+      if (ev.persisted) scrollInviteToTop();
+    });
+
     document.body.classList.add("envelope-active");
     if (mainEl) mainEl.setAttribute("inert", "");
     if (headerEl) headerEl.setAttribute("inert", "");
@@ -215,6 +234,7 @@
     var openMs = reduced ? 280 : 1680;
 
     function finishOpen() {
+      scrollInviteToTop();
       gate.classList.add("is-done");
       gate.setAttribute("aria-hidden", "true");
       gate.removeAttribute("aria-modal");
@@ -235,6 +255,7 @@
 
     btn.addEventListener("click", function () {
       if (gate.classList.contains("is-opening")) return;
+      scrollInviteToTop();
       gate.classList.add("is-opening");
       btn.disabled = true;
       window.setTimeout(finishOpen, openMs);
