@@ -525,6 +525,16 @@ body.envelope-active {
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
+.name-alias {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 2.2vw, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  opacity: 0.92;
+}
+
 .ampersand {
   display: block;
   font-family: var(--font-display);
